@@ -1,0 +1,29 @@
+{
+    "name": "cordova-plugin-emsprovider-sdk",
+    "version": "1.0.1",
+    "description": "Companion Cordova plugin for the EMS Launcher Provider SDK.",
+    "cordova": {
+        "id": "cordova-plugin-emsprovider-sdk",
+        "platforms": [
+            "android"
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/BlueFletch/cordova-plugin-emsprovider-sdk"
+    },
+    "keywords": [
+        "cordova",
+        "android",
+        "launcherprovider",
+        "ems",
+        "ecosystem:cordova",
+        "cordova-android"
+    ],
+    "author": "Bluefletch",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/BlueFletch/cordova-plugin-emsprovider-sdk/issues"
+    },
+    "homepage": "https://github.com/BlueFletch/cordova-plugin-emsprovider-sdk"
+}
