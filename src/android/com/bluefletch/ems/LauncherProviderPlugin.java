@@ -1,4 +1,15 @@
+package com.bluefletch.ems;
 
+import android.content.Context;
+
+import com.bluefletch.launcherprovider.LauncherProviderHelper;
+
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.PluginResult;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class LauncherProviderPlugin extends CordovaPlugin {
 
@@ -15,10 +26,24 @@ public class LauncherProviderPlugin extends CordovaPlugin {
             callbackContext.sendPluginResult(pluginResult);       
         }
         else if (action.equals("addConfigExtAttribute")) {
-            LauncherProviderHelper.addConfigExtAttribute(args.)
+            LauncherProviderHelper.addConfigExtAttribute(context, args.getString(0), args.getString(1));
             callbackContext.success();
         }
-        
+        else if (action.equals("removeConfigExtAttribute")) {
+            LauncherProviderHelper.removeConfigExtAttribute(context, args.getString(0));
+            callbackContext.success();
+        }
+        else if (action.equals("addSessionExtAttribute")) {
+            LauncherProviderHelper.addSessionExtAttribute(context, args.getString(0), args.getString(1));
+            callbackContext.success();
+        }
+        else if (action.equals("removeSessionExtAttribute")) {
+            LauncherProviderHelper.removeSessionExtAttribute(context, args.getString(0));
+            callbackContext.success();
+        }
+
+        return true;
+
     }
 
 
