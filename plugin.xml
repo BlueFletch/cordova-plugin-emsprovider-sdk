@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-emsprovider-sdk" version="1.0.1">
+  <name>EMS Launcher Provider Plugin</name>
+  <description>Companion Cordova plugin for the EMS Launcher Provider SDK</description>
+  <license>MIT</license>
+  <author>Bluefletch</author>
+  <repo>https://github.com/BlueFletch/cordova-plugin-emsprovider-sdk</repo>
+  <keywords>cordova,ems,launcherprovider</keywords>
+  <js-module src="www/launcherProvider.js" name="LauncherProviderPlugin">
+    <clobbers target="cordova.plugins.launcherProvider" />
+  </js-module>
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="LauncherProviderPlugin">
+                <param name="android-package" value="com.bluefletch.ems.LauncherProviderPlugin" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/com/bluefletch/ems/LauncherProviderPlugin.java" target-dir="src/com/bluefletch/ems" />
+
+    <!-- <config-file target="AndroidManifest.xml" parent="/manifest/application">
+    <service android:name="com.davidbriglio.foreground.ForegroundService" android:stopWithTask="true" />
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/*">
+        <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    </config-file> -->
+    </platform>
+
+  <!-- Only android 22+ is accepted -->
+  <engines>
+    <engine name="cordova-android" version=">=7.0.0" />
+  </engines>
+</plugin>
