@@ -17,6 +17,9 @@
         </config-file>
         <source-file src="src/android/com/bluefletch/ems/LauncherProviderPlugin.java" target-dir="src/com/bluefletch/ems" />
 
+        <framework src="src/android/launcherProvider.gradle" custom="true" type="gradleReference" />
+        <resource-file src="libs/launcherProvider-3.4.7.aar" target-dir="libs/launcherProvider-3.4.7.aar" />
+
     <!-- <config-file target="AndroidManifest.xml" parent="/manifest/application">
     <service android:name="com.davidbriglio.foreground.ForegroundService" android:stopWithTask="true" />
     </config-file>
