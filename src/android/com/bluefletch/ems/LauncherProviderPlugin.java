@@ -29,6 +29,10 @@ public class LauncherProviderPlugin extends CordovaPlugin {
             LauncherProviderHelper.addConfigExtAttribute(context, args.getString(0), args.getString(1));
             callbackContext.success();
         }
+        else if (action.equals("getConfigExtAttribute")) {
+            String value = LauncherProviderHelper.getConfigExtAttribute(context, args.getString(0));
+            callbackContext.success(value);
+        }
         else if (action.equals("removeConfigExtAttribute")) {
             LauncherProviderHelper.removeConfigExtAttribute(context, args.getString(0));
             callbackContext.success();
@@ -37,6 +41,10 @@ public class LauncherProviderPlugin extends CordovaPlugin {
             LauncherProviderHelper.addSessionExtAttribute(context, args.getString(0), args.getString(1));
             callbackContext.success();
         }
+        else if (action.equals("getSessionExtAttribute")) {
+            String value = LauncherProviderHelper.getSessionExtAttribute(context, args.getString(0));
+            callbackContext.success(value);
+        }        
         else if (action.equals("removeSessionExtAttribute")) {
             LauncherProviderHelper.removeSessionExtAttribute(context, args.getString(0));
             callbackContext.success();
