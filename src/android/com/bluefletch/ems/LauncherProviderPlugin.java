@@ -18,12 +18,24 @@ public class LauncherProviderPlugin extends CordovaPlugin {
         Context context = cordova.getActivity().getApplicationContext();
 
         if (action.equals("getCurrentSessionAsJson")) {
-
-            String currentSession = LauncherProviderHelper.getCurrentSessionAsJson(context);
-            JSONObject sessionObject = new JSONObject(currentSession);
-            PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, sessionObject);
-            pluginResult.setKeepCallback(true);
-            callbackContext.sendPluginResult(pluginResult);       
+          cordova.getThreadPool().execute(new Runnable() {
+            @Override
+            public void run() {
+              String currentSession = LauncherProviderHelper.getCurrentSessionAsJson(context);
+              if(currentSession == null || currentSession.isEmpty()){
+                currentSession = "{\"groups\":\"*\"}";
+              }
+              JSONObject sessionObject = null;
+              try {
+                sessionObject = new JSONObject(currentSession);
+              } catch (JSONException e) {
+                e.printStackTrace();
+              }
+//              PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, sessionObject);
+//              pluginResult.setKeepCallback(false);
+              callbackContext.success(sessionObject);
+            }
+          });       
         }
         else if (action.equals("addConfigExtAttribute")) {
             LauncherProviderHelper.addConfigExtAttribute(context, args.getString(0), args.getString(1));
