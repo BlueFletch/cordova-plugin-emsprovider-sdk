@@ -7,6 +7,7 @@ repositories{
 
 dependencies {
    implementation(name:'launcherProvider-3.4.7', ext:'aar')
+   implementation 'com.jakewharton.timber:timber:5.0.1'
 }
 
 android {
